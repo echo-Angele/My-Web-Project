@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Web Project</title>
+</head>
+
+<body style="text-align: center; font-size: 26px; font-weight: 600;">
+  <header>My Web Project</header>
+  <div>
+    <p>------------------******** Money Converter Web App ********------------------</p>
+  </div>
+  <p style="color: darkblue;">Convert US Dolloars to Yuan</p>
+  <div class="money-converter-container">
+    <label for="US-Dolloars">US Dollars: $</label>
+    <input type="number" id="US-Dolloars" name="US-Dolloars" style="height: 26px; border-radius: 4px;" />
+    <button type="button" onclick="convertCurrency()" style="height: 30px;">exchange</button>
+    <label for="Yuan">Yuan: ¥</label>
+    <input type="text" id="Yuan" readonly style="height: 26px; border-radius: 4px;" />
+  </div>
+  <div>
+    <p>----------------------------******** Calculator Web App ********----------------------------</p>
+  </div>
+  <p style="color: darkgreen;">Simple Calculater</p>
+  <div class="calculator-container">
+    <label>please type two numbers in the following boxes:</label>
+    <div>
+      <input type="number" name="first-number" id="first-number" style="height: 26px; border-radius: 4px;" />
+      <input type="number" name="second-number" id="second-number" style="height: 26px; border-radius: 4px;" />
+      <button type="button" onclick="addNumber()" style="height: 30px; width: 30px;">+</button>
+      <button type="button" onclick="subtractNumber()" style="height: 30px; width: 30px;">-</button>
+      <button type="button" onclick="multiplyNumber()" style="height: 30px; width: 30px;">x</button>
+      <button type="button" onclick="divideNumber()" style="height: 30px; width: 30px;">÷</button>
+      <input type="number" name="result" id="result" readonly style="height: 26px; border-radius: 4px;" />
+    </div>
+  </div>
+  <footer></footer>
+  <script>
+    function convertCurrency() {
+      const usdInput = document.getElementById('US-Dolloars');
+      const cnyInput = document.getElementById('Yuan');
+      const exchangeRate = 7; // rate exchange 1:7
+      const usdAmount = parseFloat(usdInput.value);
+
+      if (isNaN(usdAmount)) {
+        alert('PLease enter a valid amount');
+        return;
+      }
+
+      const cnyAmount = (usdAmount * exchangeRate).toFixed(2);
+      cnyInput.value = cnyAmount;
+    }
+
+
+    function addNumber() {
+      var firstNumber = document.getElementById('first-number');
+      var secondNumber = document.getElementById('second-number');
+      var result = document.getElementById('result');
+      firstNumber = parseFloat(firstNumber.value);
+      secondNumber = parseFloat(secondNumber.value);
+      result.value = firstNumber + secondNumber;
+    }
+
+
+    function subtractNumber() {
+      var firstNumber = document.getElementById('first-number');
+      var secondNumber = document.getElementById('second-number');
+      var result = document.getElementById('result');
+      firstNumber = parseFloat(firstNumber.value);
+      secondNumber = parseFloat(secondNumber.value);
+      result.value = firstNumber - secondNumber;
+    }
+
+
+
+    function multiplyNumber() {
+      var firstNumber = document.getElementById('first-number');
+      var secondNumber = document.getElementById('second-number');
+      var result = document.getElementById('result');
+      firstNumber = parseFloat(firstNumber.value);
+      secondNumber = parseFloat(secondNumber.value);
+      result.value = firstNumber * secondNumber;
+    }
+
+    function divideNumber() {
+      var firstNumber = document.getElementById('first-number');
+      var secondNumber = document.getElementById('second-number');
+      var result = document.getElementById('result');
+      firstNumber = parseFloat(firstNumber.value);
+      secondNumber = parseFloat(secondNumber.value);
+      result.value = firstNumber / secondNumber;
+    }
+  </script>
+</body>
+
+</html>
