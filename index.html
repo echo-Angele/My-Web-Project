@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Web Project</title>
 </head>
 
@@ -42,7 +44,65 @@
     </div>
   </div>
   <footer></footer>
+
   <script>
+        window.ENV = {
+            API_KEY: '___API_KEY___'
+        };
+    </script>
+
+  <script>
+
+    /*
+      {
+        "result": "success",
+        "documentation": "https://www.exchangerate-api.com/docs",
+        "terms_of_use": "https://www.exchangerate-api.com/terms",
+        "time_last_update_unix": 1585267200,
+        "time_last_update_utc": "Fri, 27 Mar 2020 00:00:00 +0000",
+        "time_next_update_unix": 1585353700,
+        "time_next_update_utc": "Sat, 28 Mar 2020 00:00:00 +0000",
+        "base_code": "USD",
+        "conversion_rates": {
+          "USD": 1,
+          "AUD": 1.4817,
+          "BGN": 1.7741,
+          "CAD": 1.3168,
+          "CHF": 0.9774,
+          "CNY": 6.9454,
+          "EGP": 15.7361,
+          "EUR": 0.9013,
+          "GBP": 0.7679,
+          "...": 7.8536,
+          "...": 1.3127,
+          "...": 7.4722, etc. etc.
+        }
+      }
+    */
+
+
+    const API_KEY = window.ENV.API_KEY;
+    let exchangeRate = 0;
+
+    async function fetchExchangeRate() {
+        try {
+            const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`);
+            const data = await response.json();
+            if (data.result === 'success') {
+                exchangeRate = data.conversion_rates.CNY;
+                console.log(`Current exchange rate: 1 USD = ${exchangeRate} CNY`);
+            } else {
+                console.error('Failed to fetch exchange rate');
+            }
+        } catch (error) {
+            console.error('Error fetching exchange rate:', error);
+        }
+    }
+
+
+    fetchExchangeRate();
+
+
     function convertCurrency() {
       const usdInput = document.getElementById('US-Dolloars-input');
       const cnyOutput = document.getElementById('Yuan-output');
@@ -54,7 +114,7 @@
         return;
       }
 
-      const cnyAmount = (usdAmount * 7).toFixed(2);
+      const cnyAmount = (usdAmount * exchangeRate).toFixed(2);
       cnyOutput.value = cnyAmount;
     }
      
@@ -68,7 +128,7 @@
         return;
       }
 
-      usdOutput.value = (localCnyInput / 7).toFixed(2);
+      usdOutput.value = (localCnyInput / exchangeRate).toFixed(2);
     }
 
 
