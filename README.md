@@ -1,6 +1,9 @@
 ## Hi there 👋
-# here is my first web application combination. I am going to build some simple app that we may use in our life, like weather, calculator, exchange rate and others.
+Here is **echo-Angele** and this is my first web application combination. 
+I am going to build some simple app that we may use in our life, like weather, calculator, exchange rate and others.
 - 🔭 I’m currently working on the third one that is weather app. I will add more function like temp, wind dirction and others.
+
+
 <!--
 **echo-Angele/echo-Angele** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
