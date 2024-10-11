@@ -1,0 +1,16 @@
+.weather-container {
+  font-size: 26px;
+}
+.title {
+  color: darkgoldenrod;
+}
+
+.input-box {
+  height: 26px;
+  width: 200px;
+}
+
+button {
+  border-radius: 6px;
+  height: 26px;
+}

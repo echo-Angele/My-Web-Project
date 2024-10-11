@@ -4,29 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>My Web Project</title>
 </head>
 
-<body style="text-align: center; font-size: 26px; font-weight: 600;">
+<body style="text-align: center; font-size: 26px; font-weight: 600;"> 
   <header>My Web Project</header>
+
   <div>
     <p>------------------******** Money Converter Web App ********------------------</p>
   </div>
   <p style="color: darkblue;">Convert US Dolloars & Yuan</p>
   <div class="money-converter-container">
     <label for="US-Dolloars">US Dollars: $</label>
-    <input type="number" id="US-Dolloars-input" name="US-Dolloars" style="height: 26px; border-radius: 4px;" placeholder="USD amount" />
+    <input type="number" id="US-Dolloars-input" name="US-Dolloars" style="height: 26px; border-radius: 4px;"
+      placeholder="USD amount" />
     <button type="button" onclick="convertCurrency()" style="height: 30px;">exchange</button>
     <label for="Yuan">Yuan: ¥</label>
     <input type="text" id="Yuan-output" readonly style="height: 26px; border-radius: 4px;" placeholder="Result" />
   </div>
   <div class="money-converter-container">
     <label for="Yuan">Yuan: ¥</label>
-    <input type="number" id="Yuan-input" name="Yuan" style="height: 26px; border-radius: 4px;" placeholder="CNY amount" />
+    <input type="number" id="Yuan-input" name="Yuan" style="height: 26px; border-radius: 4px;"
+      placeholder="CNY amount" />
     <button type="button" onclick="yuanConvertBack()" style="height: 30px;">exchange</button>
     <label for="US Dollars">US Dollars: $</label>
-    <input type="text" id="US-Dolloars-output" readonly style="height: 26px; border-radius: 4px;" placeholder="Result" />
+    <input type="text" id="US-Dolloars-output" readonly style="height: 26px; border-radius: 4px;"
+      placeholder="Result" />
   </div>
+
   <div>
     <p>----------------------------******** Calculator Web App ********----------------------------</p>
   </div>
@@ -34,15 +40,35 @@
   <div class="calculator-container">
     <label>please type two numbers in the following boxes:</label>
     <div>
-      <input type="number" name="first-number" id="first-number" style="height: 26px; border-radius: 4px;" placeholder="First number here" />
-      <input type="number" name="second-number" id="second-number" style="height: 26px; border-radius: 4px;" placeholder="Second number here" />
+      <input type="number" name="first-number" id="first-number" style="height: 26px; border-radius: 4px;"
+        placeholder="First number here" />
+      <input type="number" name="second-number" id="second-number" style="height: 26px; border-radius: 4px;"
+        placeholder="Second number here" />
       <button type="button" onclick="addNumber()" style="height: 30px; width: 30px;">+</button>
       <button type="button" onclick="subtractNumber()" style="height: 30px; width: 30px;">-</button>
       <button type="button" onclick="multiplyNumber()" style="height: 30px; width: 30px;">x</button>
       <button type="button" onclick="divideNumber()" style="height: 30px; width: 30px;">÷</button>
-      <input type="number" name="result" id="result" readonly style="height: 26px; border-radius: 4px;" placeholder="Result" />
+      <input type="number" name="result" id="result" readonly style="height: 26px; border-radius: 4px;"
+        placeholder="Result" />
     </div>
   </div>
+
+  <div class="weather-container">
+    <p>----------------------------******** Weather Web App ********----------------------------</p>
+
+    <P class="title">Weather</P>
+    <div class="inputs">
+     <input class="input-box" title="city or zip" placeholder="Enter city name or zip code" type="text" required>
+     <button title="search-button" type="button">Search</button>
+     <button title="unit-button" type="button">Unit C/F</button>
+    </div>
+    <div class="information">
+
+    </div>
+  </div>
+
+
+
   <footer></footer>
   <script>
 
@@ -78,18 +104,18 @@
     let exchangeRate = 0;
 
     async function fetchExchangeRate() {
-        try {
-            const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`);
-            const data = await response.json();
-            if (data.result === 'success') {
-                exchangeRate = data.conversion_rates.CNY;
-                console.log(`Current exchange rate: 1 USD = ${exchangeRate} CNY`);
-            } else {
-                console.error('Failed to fetch exchange rate');
-            }
-        } catch (error) {
-            console.error('Error fetching exchange rate:', error);
+      try {
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`);
+        const data = await response.json();
+        if (data.result === 'success') {
+          exchangeRate = data.conversion_rates.CNY;
+          console.log(`Current exchange rate: 1 USD = ${exchangeRate} CNY`);
+        } else {
+          console.error('Failed to fetch exchange rate');
         }
+      } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+      }
     }
 
 
@@ -99,7 +125,7 @@
     function convertCurrency() {
       const usdInput = document.getElementById('US-Dolloars-input');
       const cnyOutput = document.getElementById('Yuan-output');
-     
+
       const usdAmount = parseFloat(usdInput.value);
 
       if (isNaN(usdAmount)) {
@@ -110,7 +136,7 @@
       const cnyAmount = (usdAmount * exchangeRate).toFixed(2);
       cnyOutput.value = cnyAmount;
     }
-     
+
     function yuanConvertBack() {
       const usdOutput = document.getElementById('US-Dolloars-output');
       const cnyInput = document.getElementById('Yuan-input');
