@@ -12,7 +12,7 @@
   <div>
     <p>------------------******** Money Converter Web App ********------------------</p>
   </div>
-  <p style="color: darkblue;">Convert US Dolloars & Yuan*</p>
+  <p style="color: darkblue;">Convert US Dolloars & Yuan</p>
   <div class="money-converter-container">
     <label for="US-Dolloars">US Dollars: $</label>
     <input type="number" id="US-Dolloars-input" name="US-Dolloars" style="height: 26px; border-radius: 4px;" placeholder="USD amount" />
@@ -30,27 +30,20 @@
   <div>
     <p>----------------------------******** Calculator Web App ********----------------------------</p>
   </div>
-  <p style="color: darkgreen;">Simple Calculater</p>
+  <p style="color: darkgreen;">Simple Calculator</p>
   <div class="calculator-container">
     <label>please type two numbers in the following boxes:</label>
     <div>
-      <input type="number" name="first-number" id="first-number" style="height: 26px; border-radius: 4px;" />
-      <input type="number" name="second-number" id="second-number" style="height: 26px; border-radius: 4px;" />
+      <input type="number" name="first-number" id="first-number" style="height: 26px; border-radius: 4px;" placeholder="First number here" />
+      <input type="number" name="second-number" id="second-number" style="height: 26px; border-radius: 4px;" placeholder="Second number here" />
       <button type="button" onclick="addNumber()" style="height: 30px; width: 30px;">+</button>
       <button type="button" onclick="subtractNumber()" style="height: 30px; width: 30px;">-</button>
       <button type="button" onclick="multiplyNumber()" style="height: 30px; width: 30px;">x</button>
       <button type="button" onclick="divideNumber()" style="height: 30px; width: 30px;">÷</button>
-      <input type="number" name="result" id="result" readonly style="height: 26px; border-radius: 4px;" />
+      <input type="number" name="result" id="result" readonly style="height: 26px; border-radius: 4px;" placeholder="Result" />
     </div>
   </div>
   <footer></footer>
-
-  <script>
-        window.ENV = {
-            API_KEY: '___API_KEY___'
-        };
-    </script>
-
   <script>
 
     /*
@@ -81,7 +74,7 @@
     */
 
 
-    const API_KEY = window.ENV.API_KEY;
+    const API_KEY = '093a8debc6434f79cc9b7e59';
     let exchangeRate = 0;
 
     async function fetchExchangeRate() {
