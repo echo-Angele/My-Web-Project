@@ -1,7 +1,8 @@
 ## Hi there!! 👋
-I am **echo-Angele** and this is my first web application combination. 
-I am building some simple apps we may use, like ***weather, calculator, exchange rate, and others***.
-- 🔭 I’m currently working on the third app, which is the ***weather app.*** I will add more functions like temperature, wind direction, and more.
+I'm **echo-Angele** and this is my first web application combination. 
+I'm building some simple apps we may use, like ***weather, calculator, exchange rate***, and others.
+- 🔭 I’m currently working on the third app, which is the ***weather app.*** I'll add more functions like temperature, wind direction, and more.
+- 🔭 I'm also making a new version of the ***calculator***. I'm trying to make it more **human-friendly**.
 
 
 <!--
